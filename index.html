@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VirtualTry AI - The Future of Fashion</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="container">
+            <a href="#hero" class="logo">VirtualTry AI</a>
+            <nav>
+                <ul class="nav-menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#demo">Demo</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <section id="hero" class="hero-section">
+            <!-- Video Background -->
+            <video autoplay muted loop playsinline class="hero-video-bg">
+                <source src="hero-video.mp4" type="video/mp4">
+                Your browser does not support the video tag.
+            </video>
+            <!-- Content Overlay -->
+            <div class="container hero-content-overlay">
+                <h1>Try-On Revolutionized!</h1>
+                <p class="subtitle">Experience a revolutionary way to shop. Upload your photo and see how garments look in real life—without the physical trials.</p>
+                <a href="#demo" class="cta-button">Try The Demo</a>
+            </div>
+        </section>
+
+        <section id="about" class="content-section hidden">
+            <div class="container">
+                <h2>About VirtualTry AI</h2>
+                <p>We are dedicated to revolutionizing the online shopping experience. Our innovative web-based system empowers users to visualize clothing interactively, enhancing confidence in purchasing decisions. We bridge the gap between physical and digital fashion, making shopping convenient and enjoyable for everyone.</p>
+            </div>
+        </section>
+
+        <section id="features" class="features-section hidden">
+            <div class="container">
+                <h2>Why Us?</h2>
+                <div class="features-grid">
+                    <div class="feature-card hidden">
+                        <h3>Enhanced Customer Engagement</h3>
+                        <p>Offers an engaging and interactive way for customers to visualize clothing.</p>
+                    </div>
+                    <div class="feature-card hidden">
+                        <h3>Increased Conversion</h3>
+                        <p>Boosts confidence in purchase decisions by allowing customers to virtually "try before they buy".</p>
+                    </div>
+                    <div class="feature-card hidden">
+                        <h3>Accessibility & Convenience</h3>
+                        <p>Try on outfits from the comfort of home, anytime, on any device.</p>
+                    </div>
+                    <div class="feature-card hidden">
+                        <h3>Customization</h3>
+                        <p>Prepares for future AI integration (like HR-VITON) to ensure a tailored fit.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="demo" class="demo-section hidden">
+            <div class="container">
+                <h2>Live Try-On Demo</h2>
+                <p>Drag & Drop an image or click to upload. This demo showcases the UI flow.</p>
+                <div class="demo-box">
+                    
+                    <div class="demo-panel" id="person-panel">
+                        <div class="panel-content">
+                            <input type="file" id="person-upload" accept="image/*" hidden>
+                            <img id="person-image" src="" alt="Person Model">
+                            <div class="upload-placeholder">
+                                <div class="shimmer-bg"></div>
+                                <span class="upload-label">1. Drop Your Photo Here</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="demo-panel" id="garment-panel">
+                        <div class="panel-content">
+                            <input type="file" id="garment-upload" accept="image/*" hidden>
+                            <img id="garment-image" src="" alt="Garment">
+                            <div class="upload-placeholder">
+                                <div class="shimmer-bg"></div>
+                                <span class="upload-label">2. Drop Garment Here</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="demo-panel" id="result-panel">
+                        <div class="panel-content">
+                            <span class="upload-label">3. See Your Result</span>
+                            <button id="try-on-button">Generate</button>
+                            
+                            <!-- Slider Container -->
+                            <div class="slider-container" id="result-slider">
+                                <div class="slider-image" id="result-image-after">
+                                    <img src="" alt="Try-On Result">
+                                </div>
+                                <div class="slider-image" id="result-image-before">
+                                    <img src="" alt="Original Person">
+                                </div>
+                                <div class="slider-handle"></div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="footer-section hidden">
+        <div class="container">
+            <h2>Connect, Try, Wear!</h2>
+            <p>Ready to bring your fashion store into the digital era?</p>
+            <p>contact@virtualtry.ai</p>
+            <div class="footer-links">
+                <a href="#">Follow Us</a>
+                <a href="#">Menu</a>
+                <a href="#">Address</a>
+            </div>
+            <p class="copyright">&copy; 2025 VirtualTry AI. The Future of Fashion is Digital.</p>
+        </div>
+    </footer>
+
+</body>
+</html>

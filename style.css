@@ -1,0 +1,436 @@
+/* --- Global & Font Setup --- */
+:root {
+    --primary-color: #00bcd4; /* A modern tech cyan/teal */
+    --dark-bg: #121212;
+    --surface-color: #1e1e1e;
+    --text-color: #e0e0e0;
+    --text-muted: #888;
+    --border-radius: 8px;
+    --shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+    background-color: var(--dark-bg);
+    color: var(--text-color);
+    line-height: 1.6;
+    overflow-x: hidden; /* Prevents horizontal scroll from animations */
+}
+
+.container {
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 0 20px;
+}
+
+h1, h2, h3 {
+    line-height: 1.2;
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+h1 { font-size: 3rem; }
+h2 { font-size: 2.2rem; color: var(--primary-color); }
+p { margin-bottom: 1rem; }
+a { color: var(--primary-color); text-decoration: none; }
+
+/* --- Navbar --- */
+.navbar {
+    background-color: var(--surface-color);
+    padding: 1rem 0;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: var(--shadow);
+}
+
+.navbar .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar .logo {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #fff;
+}
+
+.navbar .nav-menu {
+    display: flex;
+    list-style: none;
+}
+
+.navbar .nav-menu li {
+    margin-left: 2rem;
+}
+
+.navbar .nav-menu a {
+    color: var(--text-color);
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.navbar .nav-menu a:hover {
+    color: var(--primary-color);
+}
+
+/* --- Hero Section (Includes Video Styling) --- */
+.hero-section {
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0; 
+    position: relative;
+    background-color: #161616; /* Fallback background color */
+    overflow: hidden;
+}
+
+.hero-video-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures video covers the entire section */
+    z-index: 1;
+    filter: brightness(0.5); /* Darken the video so text is readable */
+}
+
+.hero-content-overlay {
+    position: relative;
+    z-index: 2; /* Put content above the video */
+    padding: 4rem 0;
+}
+
+
+.hero-section h1 {
+    color: #fff;
+    animation: fadeInDown 1s ease-out;
+}
+
+.hero-section .subtitle {
+    font-size: 1.1rem;
+    max-width: 600px;
+    margin: 1rem auto 2rem;
+    color: #fff;
+    animation: fadeInUp 1s ease-out;
+}
+
+.cta-button {
+    display: inline-block;
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 12px 28px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    animation: fadeInUp 1.2s ease-out;
+}
+
+.cta-button:hover {
+    background-color: #00acc1;
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(0, 188, 212, 0.3);
+}
+
+/* --- Content & Feature Sections --- */
+.content-section, .features-section, .demo-section, .footer-section {
+    padding: 5rem 0;
+    text-align: center;
+}
+
+.content-section p {
+    max-width: 700px;
+    margin-left: auto;
+    margin-right: auto;
+    font-size: 1.1rem;
+}
+
+.features-section {
+    background-color: var(--surface-color);
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+    text-align: left;
+}
+
+.feature-card {
+    background-color: var(--dark-bg);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card h3 {
+    color: var(--text-color);
+    font-size: 1.2rem;
+}
+
+.feature-card p {
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 0;
+}
+
+/* --- Demo Section (Try-On Panels) --- */
+.demo-box {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+    margin-top: 2rem;
+    background-color: var(--surface-color);
+    padding: 2rem;
+    border-radius: var(--border-radius);
+}
+
+.demo-panel {
+    background-color: var(--dark-bg);
+    border-radius: var(--border-radius);
+    border: 2px dashed var(--text-muted);
+    transition: border-color 0.3s ease, background-color 0.3s ease;
+}
+
+/* Drag & Drop Style */
+.demo-panel.drag-over {
+    border-color: var(--primary-color);
+    background-color: #2a2a2a;
+}
+
+.demo-panel .panel-content {
+    position: relative;
+    width: 100%;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.demo-panel img {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: none; /* Hidden by default */
+    z-index: 2;
+}
+
+.upload-placeholder {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    z-index: 1;
+}
+
+.upload-label {
+    font-size: 1.1rem;
+    font-weight: 500;
+    z-index: 3; /* Above shimmer */
+    color: var(--text-muted);
+}
+
+/* Shimmer Placeholder Animation */
+.shimmer-bg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+        100deg,
+        rgba(255, 255, 255, 0) 20%,
+        rgba(255, 255, 255, 0.05) 50%,
+        rgba(255, 255, 255, 0) 80%
+    );
+    background-size: 200% 100%;
+    animation: shimmer 2s infinite linear;
+}
+
+@keyframes shimmer {
+    from { background-position: 200% 0; }
+    to { background-position: -200% 0; }
+}
+
+/* Result Panel Specifics */
+#result-panel {
+    cursor: default;
+}
+
+#try-on-button {
+    background-color: var(--primary-color);
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1rem;
+    transition: all 0.3s ease;
+    z-index: 3;
+}
+
+#try-on-button:hover {
+    background-color: #00acc1;
+    box-shadow: 0 4px 10px rgba(0, 188, 212, 0.3);
+}
+
+/* Before/After Slider */
+.slider-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: none; /* Hidden until generated */
+    z-index: 2;
+    overflow: hidden;
+}
+
+.slider-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slider-image img {
+    display: block; /* Make sure it's visible */
+}
+
+#result-image-after {
+    /* This is the top image that gets clipped */
+    clip-path: polygon(0 0, 50% 0, 50% 100%, 0 100%);
+}
+
+.slider-handle {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    width: 4px;
+    height: 100%;
+    background-color: rgba(255, 255, 255, 0.8);
+    transform: translateX(-50%);
+    cursor: ew-resize;
+    z-index: 4;
+    transition: background-color 0.1s;
+}
+
+.slider-handle.active {
+    background-color: var(--primary-color);
+}
+
+.slider-handle::after {
+    content: '...';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(90deg);
+    background: rgba(255, 255, 255, 0.8);
+    color: #121212;
+    padding: 2px 5px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.5rem;
+    line-height: 0.5;
+}
+
+
+/* --- Footer --- */
+.footer-section {
+    background-color: #0a0a0a;
+    color: var(--text-muted);
+}
+
+.footer-links {
+    margin: 1.5rem 0;
+}
+
+.footer-links a {
+    margin: 0 1rem;
+    color: var(--text-muted);
+    transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+    color: var(--primary-color);
+}
+
+.copyright {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+}
+
+/* --- Scroll-Triggered Animations --- */
+.hidden {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.hidden.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Staggered animation for feature cards */
+.feature-card.hidden:nth-child(2) { transition-delay: 0.1s; }
+.feature-card.hidden:nth-child(3) { transition-delay: 0.2s; }
+.feature-card.hidden:nth-child(4) { transition-delay: 0.3s; }
+
+
+/* --- Base Animations (from Hero) --- */
+@keyframes fadeInDown {
+    from { opacity: 0; transform: translateY(-20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes fadeInUp {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* --- Responsive --- */
+@media (max-width: 768px) {
+    h1 { font-size: 2.5rem; }
+    h2 { font-size: 1.8rem; }
+
+    .navbar .nav-menu {
+        display: none; 
+    }
+
+    .demo-box {
+        grid-template-columns: 1fr;
+    }
+}
+
